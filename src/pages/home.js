@@ -11,7 +11,9 @@ export const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes");
+        const response = await axios.get(
+          "https://backend-be7i.onrender.com/recipes"
+        );
         setRecipes(response.data);
       } catch (error) {
         console.error(error);
@@ -21,7 +23,7 @@ export const Home = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`
+          `https://backend-be7i.onrender.com/recipes/savedRecipes/ids/${userID}`
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (error) {
@@ -38,7 +40,7 @@ export const Home = () => {
   const saveRecipe = async (recipeID) => {
     try {
       const response = await axios.put(
-        "http://localhost:3001/recipes",
+        "https://backend-be7i.onrender.com/recipes",
         {
           recipeID,
           userID,

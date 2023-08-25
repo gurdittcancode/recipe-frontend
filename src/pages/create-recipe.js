@@ -41,7 +41,7 @@ export const CreateRecipe = () => {
     event.preventDefault();
     try {
       
-      await axios.post("http://localhost:3001/recipes", recipe, {
+      await axios.post("https://backend-be7i.onrender.com/recipes", recipe, {
         headers: { authorization: cookies.access_token },
       });
       alert("Recipe Created");

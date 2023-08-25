@@ -21,10 +21,13 @@ const Login = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://backend-be7i.onrender.com/auth/login",
+        {
+          username,
+          password,
+        }
+      );
 
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);
@@ -54,7 +57,7 @@ const Register = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/auth/register", {
+      await axios.post("https://backend-be7i.onrender.com/auth/register", {
         username,
         password,
       });
